@@ -156,4 +156,15 @@
     body {
         @apply bg-background text-foreground;
     }
+
+    html {
+  scroll-behavior: smooth;
+}
+
+}
+html {
+    scroll-behavior: smooth;
+  }
+  body {
+    transition: all 0.3s ease; /* Smooth transition between layouts */
 }
