@@ -7,7 +7,7 @@ type Props = {
 export default function Navbar({ isAltLayout, toggleLayout }: Props) {
     return (
         <nav className="flex items-center justify-between bg-white p-4 shadow-md dark:bg-black">
-            <h1 className="text-xl font-bold text-gray-800 dark:text-white">My Portfolio</h1>
+            <h1 className="text-xl font-bold text-gray-800 dark:text-white">Hello!</h1>
 
             <label className="flex cursor-pointer items-center gap-2">
                 <span className="text-sm text-gray-700 dark:text-gray-300">Layout</span>

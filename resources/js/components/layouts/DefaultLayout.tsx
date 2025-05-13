@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { FaGitAlt, FaLaravel, FaReact } from 'react-icons/fa';
 import { SiJavascript, SiMysql, SiTailwindcss } from 'react-icons/si';
+import DecryptedText from '../DecryptedText';
 import GalleryModal from '../GalleryModal';
-
 import Head from '../Head';
+import Particles from '../Particles';
 
 const skills = [
     { name: 'React', icon: <FaReact className="text-3xl text-blue-500" /> },
@@ -23,13 +24,14 @@ export default function DefaultLayout() {
     const [currentImage, setCurrentImage] = useState<string | null>(null);
 
     // 🔍 Sample gallery images
-    const portfolioImages = ['/images/portfolio1.jpg', '/images/portfolio2.jpg', '/images/portfolio3.jpg'];
+    const portfolioImages = ['/images/sample.jpg', '/images/sample.jpg', '/images/sample.jpg'];
 
-    const anotherProjectImages = ['/images/project2-1.jpg', '/images/project2-2.jpg'];
+    const anotherProjectImages = ['/images/sample.jpg', '/images/sample.jpg'];
 
     return (
         <>
             <Head title="My Portfolio" />
+
             <div className="default-layout bg-white text-gray-900 dark:bg-[#0a0a0a] dark:text-white">
                 {/* <section id="home" className="flex min-h-screen items-center justify-center p-8">
                     <img src="/images/gutentama.jpg" alt="Gutentama" className="h-auto w-48 rounded-lg object-cover shadow-lg" />
@@ -40,14 +42,38 @@ export default function DefaultLayout() {
                 </section> */}
 
                 {/* Introduction */}
-                <section id="home" className="flex min-h-screen items-center justify-center p-8">
-                    <div className="col-span-2">
-                        <div className="text-center">
-                            <h1 className="mb-4 text-4xl font-bold">Hi, I'm John Doe</h1>
-                            <p className="text-lg">Full-Stack Developer | Laravel + React Enthusiast</p>
-                        </div>
+                <section id="home" className="relative flex min-h-screen items-center justify-center overflow-hidden">
+                    {/* Particle Background */}
+                    <div className="absolute inset-0 z-0">
+                        <Particles
+                            particleColors={['#ffffff', '#ffffff']}
+                            particleCount={200}
+                            particleSpread={10}
+                            speed={0.1}
+                            particleBaseSize={100}
+                            moveParticlesOnHover={true}
+                            alphaParticles={false}
+                            disableRotation={false}
+                        />
+                    </div>
+
+                    {/* Foreground Content */}
+                    <div className="relative z-10 px-4 text-center">
+                        <div style={{ marginTop: '4rem' }}></div>
+                        <h1 className="mb-4 text-4xl font-bold text-white">
+                            <DecryptedText text="Hi, I'm John Doe" animateOn="view" revealDirection="center" speed={60} />
+                        </h1>
+                        <p className="text-lg text-white">
+                            <DecryptedText
+                                text="Full-Stack Developer | Laravel + React Enthusiast"
+                                animateOn="view"
+                                revealDirection="center"
+                                speed={60}
+                            />
+                        </p>
                     </div>
                 </section>
+
                 {/* About Me */}
                 <section id="about" className="flex min-h-screen items-center justify-center bg-gray-100 p-8 dark:bg-[#161615]">
                     <div className="flex items-center gap-8">
